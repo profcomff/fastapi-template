@@ -7,7 +7,7 @@ foo@bar:~$ pip install cookiecutter
 ```
 
 2) Перейдите в ту директорию, где у вас будет хранится код для проекта
-Это делается комадами $ cd, $ pwd, $ ls
+Это делается комадами:
 ```console
 foo@bar:~$ cd
 foo@bar:~$ pwd
