@@ -33,3 +33,16 @@ foo@bar:~$ cookiecutter https://github.com/profcomff/fastapi-template.git
 3.3) description - Краткое описание проекта для README.md
 
 4) У вас создастся структура проекта, корнем которой будет папка repo_name. Вы должны создать новый пустой репозиторий на GitHub и импортировать туда все из этой папки.
+
+## Стек технологий в шаблоне
+
+1) fastapi
+2) sqlalchemy
+3) pydantic
+4) alembic
+
+Вы можете добавлять новые технологии в файле requirements.txt.
+
+## Предложения по шаблону
+
+Писать мне @Alevardo (tg) или в нашем чатике
