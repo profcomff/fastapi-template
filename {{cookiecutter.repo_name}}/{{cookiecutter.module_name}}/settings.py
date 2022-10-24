@@ -11,6 +11,12 @@ class Settings(BaseSettings):
     CORS_ALLOW_METHODS: list[str] = ['*']
     CORS_ALLOW_HEADERS: list[str] = ['*']
 
+    class Config:
+        """Pydantic BaseSettings config"""
+
+        case_sensitive = True
+        env_file = ".env"
+
 
 @lru_cache
 def get_settings() -> Settings:

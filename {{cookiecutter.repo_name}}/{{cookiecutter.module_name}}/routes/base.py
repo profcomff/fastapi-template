@@ -1,3 +1,5 @@
+from fastapi import FastAPI
+
 from ..settings import Settings
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_sqlalchemy import DBSessionMiddleware
