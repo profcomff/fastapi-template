@@ -13,7 +13,7 @@ foo@bar:~$ python3 -m venv ./venv/
 
 3) Установите библиотеки 
 ```console
-foo@bar:~$ pip install -m requirements.txt
+foo@bar:~$ pip install -r requirements.txt
 ```
 4) Запускайте приложение!
 ```console
