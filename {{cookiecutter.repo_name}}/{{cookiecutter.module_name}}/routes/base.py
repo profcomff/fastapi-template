@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-
-from ..settings import Settings
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_sqlalchemy import DBSessionMiddleware
 
-settings = Settings()
+from {{cookiecutter.module_name}}.settings import get_settings
+
+
+settings = get_settings()
 app = FastAPI()
 
 app.add_middleware(
