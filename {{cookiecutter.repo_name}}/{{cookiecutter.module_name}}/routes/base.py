@@ -2,11 +2,20 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_sqlalchemy import DBSessionMiddleware
 
+from {{cookiecutter.module_name}} import __version__
 from {{cookiecutter.module_name}}.settings import get_settings
 
 
 settings = get_settings()
-app = FastAPI()
+app = FastAPI(
+    title='{{cookiecutter.name}}',
+    description='{{cookiecutter.short_description}}',
+    version=__version__,
+
+    # Отключаем нелокальную документацию
+    docs_url=None if __version__ != 'dev' else '/docs',
+    redoc_url=None,
+)
 
 
 app.add_middleware(
