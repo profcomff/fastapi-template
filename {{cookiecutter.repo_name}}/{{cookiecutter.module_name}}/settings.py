@@ -4,6 +4,7 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     """Application settings"""
+
     DB_DSN: PostgresDsn
 
     CORS_ALLOW_ORIGINS: list[str] = ['*']

@@ -8,6 +8,7 @@ from {{cookiecutter.module_name}}.settings import get_settings
 settings = get_settings()
 app = FastAPI()
 
+
 app.add_middleware(
     DBSessionMiddleware,
     db_url=settings.DB_DSN,
