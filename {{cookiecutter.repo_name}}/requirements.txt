@@ -1,10 +1,10 @@
+alembic
+auth-lib-profcomff[fastapi]
 fastapi
 fastapi-sqlalchemy
-psycopg2-binary
-pydantic[dotenv]
-uvicorn
-alembic
-SQLAlchemy
 gunicorn
 logging-profcomff
-auth-lib-profcomff[fastapi]
+psycopg2-binary
+pydantic[dotenv]
+SQLAlchemy
+uvicorn
