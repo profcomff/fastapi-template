@@ -1,0 +1,22 @@
+name: Run isort
+on:
+  pull_request:
+
+jobs:
+  isort:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - uses: isort/isort-action@master
+        with:
+            requirementsFiles: "requirements.txt requirements.dev.txt"
+      - name: Comment
+        if: ${{ failure() }}
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            :exclamation: Use isort to format code :exclamation:
+            https://pycqa.github.io/isort/
