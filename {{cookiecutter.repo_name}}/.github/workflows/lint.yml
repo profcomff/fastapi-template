@@ -1,9 +1,10 @@
-name: Run isort
+name: Run lint
 on:
   pull_request:
 
+
 jobs:
-  isort:
+  linting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,10 +14,11 @@ jobs:
       - uses: isort/isort-action@master
         with:
             requirementsFiles: "requirements.txt requirements.dev.txt"
-      - name: Comment
+      - uses: psf/black@stable
+      - name: Comment if linting failed
         if: ${{ failure() }}
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            :exclamation: Use isort to format code :exclamation:
-            https://pycqa.github.io/isort/
+             :poop: Code linting failed, use `black` and `isort` to fix it.
+  
