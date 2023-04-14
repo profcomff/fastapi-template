@@ -28,13 +28,25 @@ jobs:
           DB_DSN=postgresql://postgres@localhost:5432/postgres alembic upgrade head
       - name: Build coverage file
         run: |
-          DB_DSN=postgresql://postgres@localhost:5432/postgres pytest --cache-clear --showlocals --cov={{cookiecutter.module_name}} tests > pytest-coverage.txt
+          DB_DSN=postgresql://postgres@localhost:5432/postgres pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov={{cookiecutter.module_name}} tests/ | tee pytest-coverage.txt
       - name: Print report
         if: always()
         run: |
           cat pytest-coverage.txt
-      - name: Comment coverage
-        uses: coroo/pytest-coverage-commentator@v1.0.2
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
+        with:
+          pytest-coverage-path: ./pytest-coverage.txt
+          title: Coverage Report
+          badge-title: Code Coverage
+          hide-badge: false
+          hide-report: false
+          create-new-comment: false
+          hide-comment: false
+          report-only-changed-files: false
+          remove-link-from-badge: false
+          junitxml-path: ./pytest.xml
+          junitxml-title: Summary
   linting:
     runs-on: ubuntu-latest
     steps:
