@@ -83,6 +83,7 @@ jobs:
             --restart on-failure:3 \
             --network=web \
             --env DB_DSN='{{"${{ secrets.DB_DSN }}"}}' \
+            --env AUTH_URL='https://api.test.profcomff.com/auth' \
             --env ROOT_PATH='/{{cookiecutter.module_name}}' \
             --env AUTH_URL='https://api.test.profcomff.com/auth' \
             --env GUNICORN_CMD_ARGS='--log-config logging_test.conf' \
@@ -124,6 +125,7 @@ jobs:
             --restart always \
             --network=web \
             --env DB_DSN='{{"${{ secrets.DB_DSN }}"}}' \
+            --env AUTH_URL='https://api.profcomff.com/auth' \
             --env ROOT_PATH='/{{cookiecutter.module_name}}' \
             --env AUTH_URL='https://api.profcomff.com/auth' \
             --env GUNICORN_CMD_ARGS='--log-config logging_prod.conf' \
