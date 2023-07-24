@@ -19,4 +19,4 @@ class Base:
         attrs = []
         for c in self.__table__.columns:
             attrs.append(f"{c.name}={getattr(self, c.name)}")
-        return "{}({})".format(self.__class__.__name__, ', '.join(attrs))
+        return "{}({})".format(self.__class__.__name__, ", ".join(attrs))
