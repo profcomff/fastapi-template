@@ -1,7 +1,8 @@
 import os
 from functools import lru_cache
 
-from pydantic import BaseSettings, PostgresDsn
+from pydantic import ConfigDict, PostgresDsn
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
@@ -15,11 +16,7 @@ class Settings(BaseSettings):
     CORS_ALLOW_METHODS: list[str] = ['*']
     CORS_ALLOW_HEADERS: list[str] = ['*']
 
-    class Config:
-        """Pydantic BaseSettings config"""
-
-        case_sensitive = True
-        env_file = ".env"
+    model_config = ConfigDict(case_sensitive=True, env_file=".env", extra="ignore")
 
 
 @lru_cache

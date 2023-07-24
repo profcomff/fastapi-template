@@ -6,5 +6,6 @@ gunicorn
 logging-profcomff
 psycopg2-binary
 pydantic[dotenv]
+pydantic-settings
 SQLAlchemy
 uvicorn
