@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class Base(BaseModel):
@@ -6,7 +6,6 @@ class Base(BaseModel):
         attrs = []
         for k, v in self.__class__.schema().items():
             attrs.append(f"{k}={v}")
-        return "{}({})".format(self.__class__.__name__, ', '.join(attrs))
+        return "{}({})".format(self.__class__.__name__, ", ".join(attrs))
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True, extra="ignore")
