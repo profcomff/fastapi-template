@@ -53,7 +53,7 @@ jobs:
     runs-on: [self-hosted, Linux]
     environment:
       name: Testing
-      url: https://{{cookiecutter.module_name}}.api.test.profcomff.com/
+      url: https://api.test.profcomff.com/?urls.primaryName={{cookiecutter.module_name}}
     env:
       CONTAINER_NAME: com_profcomff_api_{{cookiecutter.module_name}}_test
     permissions:
@@ -95,7 +95,7 @@ jobs:
     runs-on: [self-hosted, Linux]
     environment:
       name: Production
-      url: https://{{cookiecutter.module_name}}.api.profcomff.com/
+      url: https://api.profcomff.com/?urls.primaryName={{cookiecutter.module_name}}
     env:
       CONTAINER_NAME: com_profcomff_api_{{cookiecutter.module_name}}
     permissions:
