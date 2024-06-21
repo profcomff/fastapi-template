@@ -50,7 +50,7 @@ jobs:
   deploy-testing:
     name: Deploy Testing
     needs: build-and-push-image
-    runs-on: [self-hosted, Linux]
+    runs-on: [self-hosted, Linux, testing]
     environment:
       name: Testing
       url: https://api.test.profcomff.com/?urls.primaryName={{cookiecutter.module_name}}
@@ -91,7 +91,7 @@ jobs:
     name: Deploy Production
     needs: build-and-push-image
     if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: [self-hosted, Linux]
+    runs-on: [self-hosted, Linux, production]
     environment:
       name: Production
       url: https://api.profcomff.com/?urls.primaryName={{cookiecutter.module_name}}
